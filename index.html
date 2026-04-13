@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="pageTitle">Toilet Paper Calculator</title>
+    <meta name="description" content="Calculate and compare the true value of toilet paper.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dark-theme">
+    <div class="background-decor"></div>
+    <div class="background-decor-2"></div>
+
+    <nav class="top-nav">
+        <div class="brand">TPCalc</div>
+        <div class="nav-actions">
+            <a href="https://buymeacoffee.com/guilhermeagostinelli" target="_blank" class="donate-btn">
+                🧻 <span data-i18n="btnDonate">Buy me a <s>coffee</s> Toilet Paper</span>
+            </a>
+            <div class="lang-toggle">
+                <button id="btn-en" class="lang-btn active">EN</button>
+                <button id="btn-pt" class="lang-btn">PT-BR</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="header">
+            <h1 data-i18n="mainHeading">Toilet Paper Price Calculator</h1>
+            <p class="subtitle" data-i18n="subtitle">Find the best value by comparing true costs.</p>
+        </header>
+
+        <section class="calculator-layout">
+            <aside class="form-container glassmorphism">
+                <h2 data-i18n="addTitle">Add an Option</h2>
+                <form id="tp-form">
+                    <div class="form-group">
+                        <label for="brandName" data-i18n="lblBrand">Brand / Name</label>
+                        <input type="text" id="brandName" required placeholder="e.g. Cottonelle Ultra"
+                            data-i18n-placeholder="phBrand">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price" data-i18n="lblPrice">Price</label>
+                        <div class="input-with-symbol">
+                            <span class="symbol" id="currency-symbol">$</span>
+                            <input type="text" inputmode="numeric" id="price" required placeholder="0.00"
+                                data-i18n-placeholder="phPrice">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="rolls" data-i18n="lblRolls">Number of Rolls</label>
+                            <input type="number" id="rolls" min="1" required placeholder="12"
+                                data-i18n-placeholder="phRolls">
+                        </div>
+
+                        <div class="form-group half" id="regional-input-group">
+                            <!-- Label changes based on language: Sheets vs Meters -->
+                            <label for="regionalUnit" id="lblRegionalUnit" data-i18n="lblRegionalUnit">Sheets per
+                                Roll</label>
+                            <input type="number" id="regionalUnit" min="1" required placeholder="200"
+                                data-i18n-placeholder="phRegionalUnit">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary" data-i18n="btnAdd">Add to Compare</button>
+                    <button type="button" class="btn-secondary" id="btn-clear" data-i18n="btnClear">Clear All</button>
+                </form>
+            </aside>
+
+            <section class="results-section">
+                <div class="results-header">
+                    <h2 data-i18n="resTitle">Comparison</h2>
+                    <span class="badge" id="metric-badge" data-i18n="metricBadge">Price per 100 Sheets</span>
+                </div>
+                <div class="results-grid" id="results-grid">
+                    <!-- Cards will be injected here via JS -->
+                    <div class="empty-state" id="empty-state">
+                        <p data-i18n="emptyState">Add some options to start comparing!</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <!-- Template for a result card -->
+    <template id="card-template">
+        <div class="card glassmorphism">
+            <div class="card-header">
+                <h3 class="card-title"></h3>
+                <div class="best-value-badge" data-i18n="bestValue">Best Value</div>
+            </div>
+            <div class="card-price-main">
+                <span class="calc-price"></span>
+                <span class="calc-unit"></span>
+            </div>
+            <div class="card-details">
+                <p><span data-i18n="lblPrice">Price</span> <span class="detail-price"></span></p>
+                <p><span data-i18n="lblRollsCard">Rolls</span> <span class="detail-rolls"></span></p>
+                <p><span class="detail-regional-label"></span> <span class="detail-regional"></span></p>
+            </div>
+            <button class="btn-delete" aria-label="Delete">×</button>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
