@@ -1,6 +1,7 @@
 const i18n = {
     en: {
-        pageTitle: "Toilet Paper Calculator",
+        brand: "WipeCalc",
+        pageTitle: "WipeCalc",
         mainHeading: "Toilet Paper Price Calculator",
         subtitle: "Find the best value by comparing true costs.",
         addTitle: "Add an Option",
@@ -25,8 +26,9 @@ const i18n = {
         btnDonate: "Buy me a <s>coffee</s> Toilet Paper"
     },
     pt: {
-        pageTitle: "Calculadora de Papel Higiênico",
-        mainHeading: "Calculadora de Preço de Papel Higiênico",
+        brand: "PapelCerto",
+        pageTitle: "PapelCerto",
+        mainHeading: "Calculadora de Papel Higiênico",
         subtitle: "Encontre o melhor custo-benefício comparando os preços reais.",
         addTitle: "Adicionar Opção",
         lblBrand: "Marca / Nome",

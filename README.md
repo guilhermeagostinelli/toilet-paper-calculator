@@ -1,4 +1,4 @@
-# Toilet Paper Price Calculator
+# WipeCalc / PapelCerto – Toilet Paper Price Calculator
 
 A web-based application designed to help consumers determine the most cost-effective toilet paper. It normalizes prices based on regional metrics—such as sheets per roll in the USA or meters per roll in Brazil—so you can always find the best deal.
 
